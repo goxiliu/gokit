@@ -1,19 +1,19 @@
 package iutil
 
 import (
-	"github.com/kardianos/osext"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/kardianos/osext"
 )
 
-//读取指定目录下的文件
+// 读取指定目录下的文件
 func ListDir(dirPth string, suffix string) (files []string, err error) {
 	files = make([]string, 0, 10)
 
-	dir, err := ioutil.ReadDir(dirPth)
+	dir, err := os.ReadDir(dirPth)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func FileExist(filePath string) (bool, error) {
 	return true, nil
 }
 
-//AbsolutePath 绝对路径
+// AbsolutePath 绝对路径
 func AbsolutePath(datadir string, filename string) string {
 	if filepath.IsAbs(filename) {
 		return filename
@@ -64,11 +64,11 @@ func GetFileInfo(path string) (os.FileInfo, error) {
 	return fileinfo, nil
 }
 
-//获取目录下的文件夹
+// 获取目录下的文件夹
 func ListFolder(dirPth string) (folders []string, err error) {
 	folders = make([]string, 0, 10)
 
-	dir, err := ioutil.ReadDir(dirPth)
+	dir, err := os.ReadDir(dirPth)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +102,7 @@ func WalkDir(dirPth, suffix string) (files []string, err error) {
 	return files, err
 }
 
-//获取当前目录
+// 获取当前目录
 func GetCurrentDirectory() string {
 	// dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
 	// return strings.Replace(dir, "\\", "/", -1)

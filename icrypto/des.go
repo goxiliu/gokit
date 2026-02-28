@@ -2,7 +2,8 @@ package icrypto
 
 import (
 	"encoding/base64"
-	"github.com/thinkoner/openssl"
+
+	"github.com/go-think/openssl"
 )
 
 func DESDecrypt(desval, desKey string) ([]byte, error) {
