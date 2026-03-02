@@ -1,11 +1,11 @@
-package irand
+package randx
 
 import (
 	"math/rand"
 	"time"
 )
 
-//彩票随机算法
+// 彩票随机算法
 func GetProbability(prob []float32) int {
 	v := rand.Float32()
 	for i := 0; i < len(prob); i++ {

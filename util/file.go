@@ -1,4 +1,4 @@
-package iutil
+package util
 
 import (
 	"io"

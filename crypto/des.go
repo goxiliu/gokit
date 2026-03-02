@@ -1,4 +1,4 @@
-package icrypto
+package crypto
 
 import (
 	"encoding/base64"

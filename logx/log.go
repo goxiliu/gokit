@@ -1,4 +1,4 @@
-package ilog
+package logx
 
 import (
 	"fmt"

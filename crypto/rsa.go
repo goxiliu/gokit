@@ -1,4 +1,4 @@
-package icrypto
+package crypto
 
 import (
 	"crypto"
@@ -39,7 +39,7 @@ func packageData(originalData []byte, packageSize int) (r [][]byte) {
 	return r
 }
 
-//RSAEncrypt 公钥加密
+// RSAEncrypt 公钥加密
 func RSAEncrypt(plaintext, path string) (string, error) {
 	key, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -136,7 +136,7 @@ func parsePKCS1PublicKey(data []byte) (key *rsa.PublicKey, err error) {
 	return key, err
 }
 
-//Sign 私钥签名
+// Sign 私钥签名
 func Sign(src, privateKey string, hash crypto.Hash, rsaType Secret, keyFromFile bool) (string, error) {
 	var key []byte
 	var err error
@@ -168,7 +168,7 @@ func signPKCS1v15WithKey(src []byte, key *rsa.PrivateKey, hash crypto.Hash) ([]b
 	return rsa.SignPKCS1v15(rand.Reader, key, hash, hashed)
 }
 
-//Verify 公钥验签
+// Verify 公钥验签
 func Verify(src, sigstr, publicKey string, hash crypto.Hash, keyFromFile bool) error {
 	sig, err := base64.StdEncoding.DecodeString(sigstr)
 	if err != nil {
