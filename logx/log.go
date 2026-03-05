@@ -2,7 +2,6 @@ package logx
 
 import (
 	"fmt"
-	"path/filepath"
 	"strings"
 	"time"
 
@@ -67,7 +66,7 @@ func (s *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	var file, function string
 	var line int
 	if entry.Caller != nil {
-		file = filepath.Base(entry.Caller.File)
+		file = entry.Caller.File //filepath.Base(entry.Caller.File)
 		line = entry.Caller.Line
 		function = entry.Caller.Function
 		if funcs := strings.SplitN(function, ".", 2); len(funcs) == 2 {
