@@ -1,4 +1,4 @@
-module gokit
+module github.com/goxiliu/gokit
 
 go 1.24.0
 
